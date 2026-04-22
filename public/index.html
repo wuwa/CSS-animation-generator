@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Animation Playground</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <h1>CSS Animation Playground</h1>
+          <p class="lead">
+            Pick a preset, direction, and speed to preview the motion and copy the CSS.
+          </p>
+        </div>
+      </header>
+
+      <main class="layout split">
+        <div class="stack">
+          <section class="panel controls-panel">
+            <div class="control-group">
+              <div class="group-title">animation preset</div>
+              <div class="pill-grid" id="preset-options"></div>
+            </div>
+
+            <div class="control-row">
+              <div class="control-group">
+                <div class="group-title">direction</div>
+                <div class="direction-flower" id="direction-options"></div>
+              </div>
+
+              <div class="control-group">
+                <div class="group-title">speed</div>
+                <div class="pill-grid" id="speed-options"></div>
+              </div>
+            </div>
+
+            <div class="advanced-fields">
+              <div class="group-title">advanced</div>
+              <div class="field">
+                <label for="speed-slider">Custom speed</label>
+                <div class="speed-inline">
+                  <input
+                    id="speed-slider"
+                    type="range"
+                    min="0.4"
+                    max="4"
+                    step="0.1"
+                    value="1.5"
+                  />
+                  <input
+                    id="speed-number"
+                    type="number"
+                    min="0.4"
+                    max="4"
+                    step="0.1"
+                    value="1.5"
+                    aria-label="Custom speed in seconds"
+                  />
+                  <span class="muted">s</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="start-end-position-range">Move/Scale drift</label>
+                <div class="speed-inline">
+                  <input
+                    id="start-end-position-range"
+                    type="range"
+                    min="0"
+                    max="1000"
+                    step="1"
+                  />
+                  <input
+                    id="start-end-position-input"
+                    type="number"
+                    min="0"
+                    max="1000"
+                    step="1"
+                    aria-label="Start end drift"
+                  />
+                  <span class="muted">px</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="start-end-scale-range">Scale sizing</label>
+                <div class="speed-inline">
+                  <input
+                    id="start-end-scale-range"
+                    type="range"
+                    min="0"
+                    max="4"
+                    step="0.01"
+                  />
+                  <input
+                    id="start-end-scale-input"
+                    type="number"
+                    min="0"
+                    max="4"
+                    step="0.01"
+                    aria-label="Start scale"
+                  />
+                  <span class="muted">%</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="start-end-opacity-range">Opacity In/Out</label>
+                <div class="speed-inline">
+                  <input
+                    id="start-end-opacity-range"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                  />
+                  <input
+                    id="start-end-opacity-input"
+                    type="number"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    aria-label="Start end opacity"
+                  />
+                  <span class="muted">%</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="stack">
+          <section class="panel preview-panel">
+            <div class="panel__header">
+              <div class="panel__title">
+                <label class="preview-select-label" for="preview-object">Preview</label>
+                <select id="preview-object" class="preview-select" aria-label="Select preview object">
+                  <option value="box">Black box</option>
+                  <option value="button">Button</option>
+                  <option value="input">Text input</option>
+                  <option value="notification">Notification</option>
+                </select>
+              </div>
+              <button class="icon-button" id="replay" aria-label="Replay animation">▶</button>
+            </div>
+            <div class="preview-stage">
+              <div class="preview-box" id="preview-box" aria-label="Preview box"></div>
+            </div>
+          </section>
+
+          <section class="panel code-panel">
+            <div class="panel__header">
+              <h2>css snippet</h2>
+              <button class="button ghost" id="copy-css" type="button">Copy</button>
+            </div>
+            <pre class="code-block"><code id="css-snippet"></code></pre>
+          </section>
+        </div>
+      </main>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
+
